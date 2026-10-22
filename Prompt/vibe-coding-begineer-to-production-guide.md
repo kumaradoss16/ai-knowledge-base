@@ -73,7 +73,10 @@ The guide treats project documentation as persistent context for the AI coding a
 
 ### Recommended project structure
 
+```
+text
 student-dashboard/ ├── docs/ │   ├── PRD.md │   ├── ARCHITECTURE.md │   ├── DESIGN.md │   ├── TEST_PLAN.md │   ├── SECURITY.md │   ├── DECISIONS.md │   └── MEMORY.md ├── .cursor/ │   └── rules/ ├── src/ ├── tests/ │   ├── unit/ │   ├── integration/ │   └── e2e/ ├── public/ ├── .env.example ├── .gitignore ├── README.md ├── RULES.md └── TASKS.md
+```
 
 The structure is illustrative. Add folders and files as the project requires.
 
