@@ -12,16 +12,16 @@
 
 ## Table of Contents
 
-1. [Phase 1: The Concept — Zero to Vibe](#phase-1-the-concept--zero-to-vibe)
+1. [Phase 1: The Concept - Zero to Vibe](#phase-1-the-concept--zero-to-vibe)
 2. [Phase 2: Environment and Tooling Setup](#phase-2-environment-and-tooling-setup)
-3. [Phase 3: The Core Workflow — Iterative Generation](#phase-3-the-core-workflow--iterative-generation)
+3. [Phase 3: The Core Workflow - Iterative Generation](#phase-3-the-core-workflow--iterative-generation)
 4. [Phase 4: Production-Ready Vibe Coding](#phase-4-production-ready-vibe-coding)
 5. [Complete Project Checklist](#complete-project-checklist)
 6. [Glossary](#glossary)
 
 ---
 
-# Phase 1: The Concept — Zero to Vibe
+# Phase 1: The Concept - Zero to Vibe
 
 ## 1.1 What Is Vibe Coding?
 
@@ -474,7 +474,7 @@ Update this document when the state changes materially. It should summarize curr
 
 ---
 
-# Phase 3: The Core Workflow — Iterative Generation
+# Phase 3: The Core Workflow - Iterative Generation
 
 ## 3.1 Define the Product Before Asking AI to Build It
 
