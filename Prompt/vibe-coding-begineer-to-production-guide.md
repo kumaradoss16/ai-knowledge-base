@@ -1,2443 +1,482 @@
-Vibe Coding: A Complete Beginner-to-Production Guide
-
 # Vibe Coding: A Complete Beginner-to-Production Guide
 
+Based on your uploaded Markdown file, the guide should take you through the entire software development lifecycle—from defining an idea to operating a deployed application. The key is to combine AI-assisted coding with engineering practices: documentation, incremental implementation, testing, security, version control, and production monitoring.
 
+I'll preserve the source's core workflow and examples while organizing it into a practical, visually structured guide with clear stages, checklists, and reusable prompts.
 
-### From Idea → Planning → AI Coding → Testing → Deployment → Production
+## The complete workflow
 
----
+<img width="560" height="403" alt="image" src="https://github.com/user-attachments/assets/17bc4de7-036f-4b7a-8431-1b4b0dd712cf" />
 
 
+## Phase 1 — Define the product
 
+Before asking an AI coding tool to build anything, answer five questions.
 
+<img width="562" height="327" alt="image" src="https://github.com/user-attachments/assets/d3a1cb3b-ba15-4516-b99b-5d0a08d80b7b" />
 
-**1. The Complete Vibe Coding Workflow**
 
-Before writing any code, understand the entire process.
+Research users, competing products, technical feasibility, APIs, authentication, database needs, hosting and operating costs. Prefer official technical documentation when making implementation decisions.
 
-               IDEA
+## Phase 2 — Choose your tools and stack
 
-                  ↓
+The uploaded guide identifies these AI coding tools and their typical use cases.
 
-               RESEARCH
+| Tool        | Typical use                                          |
+| ----------- | ---------------------------------------------------- |
+| Replit      | Browser-based development and prototypes             |
+| Lovable     | UI-focused web apps and SaaS MVPs                    |
+| Bolt        | Rapid web application prototypes                     |
+| Cursor      | Local development and existing repositories          |
+| Claude Code | Terminal-based, repository-level agentic development |
 
-                  ↓
+Its recommended example stack is:
 
-            DEFINE THE USER
+<img width="555" height="310" alt="image" src="https://github.com/user-attachments/assets/8e22e0f6-d7c8-479d-ba2d-8a0cc02cee02" />
 
-                  ↓
 
-                PRD
+This is the guide's suggested stack, not a universal requirement. Choose the simplest stack that satisfies your application's actual needs.
 
-                  ↓
+### Set up your development environment
 
-            CHOOSE TECH STACK
+Install the required tools for this example stack:
 
-                  ↓
+- Cursor or VS Code
+- Git
+- Node.js LTS and npm
+- A GitHub account
+- A modern web browser
 
-             ARCHITECTURE
+Optional tools include Docker, GitHub CLI, Postman or Bruno, a database client and Vercel CLI.
 
-                  ↓
+Verify the installation:
 
-                DESIGN
-
-                  ↓
-
-             PROJECT RULES
-
-                  ↓
-
-            TASK BREAKDOWN
-
-                  ↓
-
-               SETUP
-
-                  ↓
-
-             DEVELOPMENT
-
-                  ↓
-
-               TESTING
-
-                  ↓
-
-           SECURITY REVIEW
-
-                  ↓
-
-             CODE REVIEW
-
-                  ↓
-
-          PREVIEW DEPLOYMENT
-
-                  ↓
-
-              QA TESTING
-
-                  ↓
-
-           PRODUCTION DEPLOY
-
-                  ↓
-
-             MONITORING
-
-                  ↓
-
-              ITERATION
-
-Never skip directly from:
-
-IDEA → AI → DEPLOY
-
----
-
-
-
-# 2. Step 1: Define What You Want to Build
-
-Before opening your AI coding tool, answer five questions.
-
-### 1. What problem are you solving?
-
-Example:
-
-College students struggle to organize assignments, notes and deadlines.
-
-### 2. Who is the user?
-
-Example:
-
-BCA, BSc CS and BTech students.
-
-### 3. What is the main outcome?
-
-Example:
-
-Give students one place to manage their academic work.
-
-### 4. What is the MVP?
-
-MVP means **Minimum Viable Product**.
-
-For example:
-
-Authentication
-
-Dashboard
-
-Notes
-
-Assignments
-
-Deadlines
-
-Don't start with:
-
-AI Tutor
-
-Community
-
-Payments
-
-Mobile App
-
-Gamification
-
-Social Feed
-
-Build the core product first.
-
-### 5. What is NOT part of the first version?
-
-This is equally important.
-
-Example:
-
-Out of scope:
-
-\- Mobile application
-
-\- Payments
-
-\- AI chatbot
-
-\- Social features
-
-This prevents AI from continuously expanding the project.
-
----
-
-
-
-# 3. Step 2: Research Before Coding
-
-Don't ask AI to build an idea that you haven't researched.
-
-Research:
-
-### Users
-
-- Who needs this?
-- What are their problems?
-- What alternatives already exist?
-
-### Competitors
-
-Look at:
-
-- Features
-- UI
-- Pricing
-- User experience
-- Strengths
-- Weaknesses
-
-### Technical feasibility
-
-Check:
-
-- APIs
-- Authentication
-- Database requirements
-- Third-party services
-- Hosting
-- Cost
-
-### AI tools can help with research
-
-You can use:
-
-- ChatGPT
-- Perplexity
-- Google
-- Official documentation
-- GitHub
-- Stack Overflow
-
-For technical decisions, prefer **official documentation** over random blog posts.
-
----
-
-
-
-#
-
-#
-
-# 4. Step 3: Choose Your AI Coding Tool
-
-Don't use the same tool for every project.
-
-## For beginners
-
-### Replit
-
-Good when you want:
-
-- Browser-based development
-- Minimal setup
-- Quick prototypes
-- Full-stack experimentation
-
-### Lovable
-
-Good for:
-
-- Web apps
-- SaaS prototypes
-- UI-heavy applications
-- Rapid MVP development
-
-### Bolt
-
-Good for:
-
-- Fast web application prototypes
-- JavaScript/TypeScript projects
-- Browser-based development
-
-### Cursor
-
-Good when you want:
-
-- More control
-- Existing repositories
-- Larger projects
-- Local development
-- Professional development workflows
-
-###
-
-### Claude Code
-
-Good for:
-
-- Terminal-based development
-- Larger codebases
-- Repository-level tasks
-- Agentic development workflows
-
----
-
-
-
-# 6. Recommended Beginner Stack
-
-If you're serious about learning development through vibe coding, this is a good starting stack:
-
-AI IDE
-
-Cursor
-
-
-
-Frontend
-
-Next.js
-
-
-
-Language
-
-TypeScript
-
-
-
-Styling
-
-Tailwind CSS
-
-
-
-Database
-
-PostgreSQL / Supabase
-
-
-
-Authentication
-
-Supabase Auth
-
-
-
-Version Control
-
-Git + GitHub
-
-
-
-Testing
-
-Playwright
-
-
-
-Deployment
-
-Vercel
-
-
-
-# 7. Step 4: Install the Development Environment
-
-For a typical web project, install:
-
-### Required
-
-1\. Cursor or VS Code
-
-2\. Git
-
-3\. Node.js LTS
-
-4\. npm
-
-5\. GitHub account
-
-6\. Modern web browser
-
-### Optional
-
-Docker
-
-GitHub CLI
-
-Postman / Bruno
-
-Database client
-
-Vercel CLI
-
-Verify your installation:
-
+```
 node --version
-
 npm --version
-
 git --version
+```
 
----
+Create a project and initialize version control:
 
-
-
-# 8. Step 5: Create Your Project
-
-Create a project folder:
-
+```
 mkdir student-dashboard
-
 cd student-dashboard
-
-Initialize Git:
-
 git init
+```
 
-Then create a GitHub repository.
+Create a GitHub repository and connect it to your local project. Use Git from the beginning so that you can inspect changes and recover from unwanted AI modifications.
 
-From the beginning, your project should have version control.
+## Phase 3 — Create the project documentation
 
-Why?
+The guide treats project documentation as persistent context for the AI coding agent.
 
-Because AI can break your project.
+### Recommended project structure
 
-Git gives you the ability to:
+student-dashboard/ ├── docs/ │   ├── PRD.md │   ├── ARCHITECTURE.md │   ├── DESIGN.md │   ├── TEST_PLAN.md │   ├── SECURITY.md │   ├── DECISIONS.md │   └── MEMORY.md ├── .cursor/ │   └── rules/ ├── src/ ├── tests/ │   ├── unit/ │   ├── integration/ │   └── e2e/ ├── public/ ├── .env.example ├── .gitignore ├── README.md ├── RULES.md └── TASKS.md
 
-Change
+The structure is illustrative. Add folders and files as the project requires.
 
-↓
+### What each document must define
 
-Test
+| Document          | Responsibility                                                           |
+| ----------------- | ------------------------------------------------------------------------ |
+| `PRD.md`          | What you are building and why                                            |
+| `ARCHITECTURE.md` | Components, data flow, folder structure and technical boundaries         |
+| `DESIGN.md`       | Colors, typography, reusable components and UX behavior                  |
+| `RULES.md`        | Coding standards and AI constraints                                      |
+| `TASKS.md`        | Prioritized tasks, dependencies and completion status                    |
+| `DECISIONS.md`    | Important technical decisions and their rationale                        |
+| `MEMORY.md`       | Current project state, known issues and next step                        |
+| `TEST_PLAN.md`    | Test scenarios and acceptance checks                                     |
+| `SECURITY.md`     | Authentication, authorization, secrets and input-validation requirements |
+| `.env.example`    | Required configuration variable names, without real secrets              |
+| `README.md`       | Setup instructions and project documentation                             |
 
-↓
+For a small beginner project, start with `PRD.md`, `RULES.md`, `TASKS.md`, `README.md`, `.env.example` and `.gitignore`. Expand the documentation when complexity justifies it.
 
-Break something
+### Example: define the product in `PRD.md`
 
-↓
+```
+# Product Requirements Document
 
-Compare
-
-↓
-
-Rollback
-
----
-
-
-
-# 9. Step 6: Create Your Project Documentation
-
-This is one of the most important parts of structured vibe coding.
-
-Before asking AI to build features, create your project context.
-
-A professional project can have:
-
-project/
-
-│
-
-├── docs/
-
-│   ├── PRD.md
-
-│   ├── ARCHITECTURE.md
-
-│   ├── DESIGN.md
-
-│   ├── TEST_PLAN.md
-
-│   ├── SECURITY.md
-
-│   ├── DECISIONS.md
-
-│   └── MEMORY.md
-
-│
-
-├── .cursor/
-
-│   └── rules/
-
-│
-
-├── src/
-
-├── tests/
-
-│
-
-├── README.md
-
-├── TASKS.md
-
-├── .env.example
-
-└── .gitignore
-
-You don't need all of these for a tiny project.
-
-For a beginner project, start with:
-
-PRD.md
-
-ARCHITECTURE.md
-
-DESIGN.md
-
-RULES.md
-
-TASKS.md
-
-README.md
-
-.env.example
-
----
-
-
-
-# 10. Step 7: Create PRD.md
-
-## What is PRD?
-
-**PRD = Product Requirements Document**
-
-It defines:
-
-**What are we building and why?**
-
-Example:
-
-\# Product Requirements Document
-
-
-
-\## Product
-
+## Product
 StudentHub
 
+## Problem
+Students struggle to manage academic notes,
+assignments and deadlines.
 
-
-\## Problem
-
-Students struggle to manage their academic
-
-notes, assignments and deadlines.
-
-
-
-\## Target Users
-
+## Target Users
 BCA, BSc CS and BTech students.
 
+## Core Features
+1. Authentication
+2. Dashboard
+3. Notes
+4. Assignments
+5. Deadlines
 
+## MVP
+- Sign up and log in
+- Create, edit and delete notes
+- Create assignments
+- Mark assignments complete
 
-\## Goal
+## Out of Scope
+- Payments
+- AI tutor
+- Social feed
+- Mobile application
 
-Create a centralized academic productivity dashboard.
+## Success Criteria
+Users can authenticate, manage notes,
+create assignments and mark them complete.
+```
 
+### Define the architecture and design
 
+`ARCHITECTURE.md` should describe the selected stack, component responsibilities, data flow and security boundaries. The source's example architecture is:
 
-\## Core Features
+<img width="561" height="332" alt="image" src="https://github.com/user-attachments/assets/ba8750bf-6b01-4bed-9381-b2b30ae07f8d" />
 
 
+Document boundaries such as:
 
-1\. Authentication
+- UI components should not contain database access logic.
+- Database operations belong in a defined service or data-access layer.
+- Authentication and authorization must be enforced server-side.
+- Business logic should remain separate from presentation code.
 
-2\. Dashboard
+`DESIGN.md` should define consistent typography, color tokens, buttons, cards, responsive layouts, loading states, empty states, error states and accessible forms.
 
-3\. Notes
+## Phase 4 — Establish AI coding rules and tasks
 
-4\. Assignments
+Use `RULES.md` as the project's AI rulebook. The source recommends rules such as:
 
-5\. Deadlines
+- Read relevant documentation and inspect existing code before editing.
+- Reuse existing components and functionality.
+- Avoid duplicate logic and unrelated file changes.
+- Follow the documented design system and architecture.
+- Never expose API keys.
+- Validate input and enforce authorization server-side.
+- Add and run tests for important functionality.
+- Use small, descriptive Git commits.
 
+For Cursor, these rules can also be split into `.cursor/rules/` files, such as `general.mdc`, `frontend.mdc`, `backend.mdc` and `testing.mdc`.
 
+### Break work into small tasks
 
-\## MVP
+Example `TASKS.md`:
 
+```
+# Tasks
 
+## Phase 1: Setup
+- [ ] Initialize project
+- [ ] Configure TypeScript
+- [ ] Configure Tailwind
+- [ ] Configure Git
 
-\- Signup
+## Phase 2: Authentication
+- [ ] Create signup page
+- [ ] Create login page
+- [ ] Configure authentication
+- [ ] Protect dashboard
+- [ ] Test authentication
 
-\- Login
+## Phase 3: Notes
+- [ ] Create database table
+- [ ] Create notes service
+- [ ] Create notes UI
+- [ ] Add note creation
+- [ ] Add edit functionality
+- [ ] Add delete functionality
+- [ ] Add tests
+```
 
-\- Dashboard
+Maintain a separate `DECISIONS.md` for durable technical decisions and `MEMORY.md` for the current task, completed work, known issues and next step.
 
-\- Create notes
+## Phase 5 — Give the AI the right context
 
-\- Edit notes
+Do not start with “Build my entire application.”
 
-\- Delete notes
+Use a planning-only prompt first:
 
-\- Create assignments
+# Initial AI Project Review
 
+You are the coding agent responsible for implementing this project.
 
+Before making any changes, read:
 
-\## Out of Scope
-
-
-
-\- Payments
-
-\- AI tutor
-
-\- Mobile app
-
-\- Social feed
-
-
-
-\## Success Criteria
-
-
-
-A user should be able to:
-
-
-
-1\. Create an account
-
-2\. Login
-
-3\. Create a note
-
-4\. Edit a note
-
-5\. Delete a note
-
-6\. Create an assignment
-
-7\. Mark an assignment complete
-
-### Remember:
-
-**PRD = WHAT + WHY**
-
----
-
-
-
-# 11. Step 8: Create ARCHITECTURE.md
-
-This defines:
-
-**How will the application work?**
-
-Example:
-
-\# Architecture
-
-
-
-\## Frontend
-
-Next.js + TypeScript
-
-
-
-\## Styling
-
-Tailwind CSS
-
-
-
-\## Backend
-
-Next.js server-side functionality
-
-
-
-\## Database
-
-Supabase PostgreSQL
-
-
-
-\## Authentication
-
-Supabase Auth
-
-
-
-\## Deployment
-
-Vercel
-
-
-
-\## Architecture
-
-
-
-User
-
-↓
-
-Next.js UI
-
-↓
-
-Server Action / API
-
-↓
-
-Supabase
-
-↓
-
-PostgreSQL
-
-Define your folder structure too:
-
-src/
-
-├── app/
-
-├── components/
-
-├── features/
-
-├── services/
-
-├── lib/
-
-├── types/
-
-└── utils/
-
-Also define architectural rules.
-
-Example:
-
-\- UI components should not contain database logic.
-
-\- Database operations belong in services.
-
-\- Authentication must be verified server-side.
-
-\- Reusable UI should be placed in components.
-
-\- Business logic should remain separate from UI.
-
-### Remember:
-
-**Architecture = HOW**
-
----
-
-
-
-# 12. Step 9: Create DESIGN.md
-
-This gives AI a consistent visual system.
-
-Without it, you may get:
-
-Page 1 → rounded cards
-
-
-
-Page 2 → square cards
-
-
-
-Page 3 → different buttons
-
-
-
-Page 4 → completely different typography
-
-Define:
-
-\# Design System
-
-
-
-\## Style
-
-Modern
-
-Minimal
-
-Professional
-
-
-
-\## Typography
-
-Inter
-
-
-
-\## Colors
-
-Primary: #6366F1
-
-Background: #F8FAFC
-
-Text: #0F172A
-
-Muted: #64748B
-
-
-
-\## Buttons
-
-
-
-Primary
-
-Secondary
-
-Destructive
-
-
-
-\## Cards
-
-
-
-Border radius: 12px
-
-
-
-\## UX Requirements
-
-
-
-\- Mobile responsive
-
-\- Loading states
-
-\- Empty states
-
-\- Error states
-
-\- Accessible forms
-
-### Remember:
-
-**DESIGN.md = HOW IT SHOULD LOOK AND FEEL**
-
----
-
-
-
-# 13. Step 10: Create RULES.md
-
-This is your project's **AI rulebook**.
-
-Example:
-
-\# Development Rules
-
-
-
-\## General
-
-
-
-\- Use TypeScript.
-
-\- Reuse existing components.
-
-\- Do not duplicate logic.
-
-\- Keep functions small.
-
-\- Do not modify unrelated files.
-
-
-
-\## Before Coding
-
-
-
-\- Read the relevant project documentation.
-
-\- Inspect existing implementation.
-
-\- Reuse existing functionality where possible.
-
-\- Make a plan for large changes.
-
-
-
-\## UI
-
-
-
-\- Follow DESIGN.md.
-
-\- Maintain responsive design.
-
-\- Include loading states.
-
-\- Include error states.
-
-\- Include empty states.
-
-
-
-\## Security
-
-
-
-\- Never expose API keys.
-
-\- Validate user input.
-
-\- Verify authorization server-side.
-
-
-
-\## Testing
-
-
-
-\- Add tests for important functionality.
-
-\- Run tests after implementation.
-
-\- Fix failing tests before continuing.
-
-
-
-\## Git
-
-
-
-\- Make small commits.
-
-\- Use descriptive commit messages.
-
-For Cursor, these rules can also be organized inside:
-
-.cursor/rules/
-
-For example:
-
-.cursor/
-
-└── rules/
-
-    ├── general.mdc
-
-    ├── frontend.mdc
-
-    ├── backend.mdc
-
-    └── testing.mdc
-
----
-
-
-
-# 14. Step 11: Create TASKS.md
-
-Never ask AI to build the entire application in one prompt.
-
-Break the project into tasks.
-
-\# Tasks
-
-
-
-\## Phase 1: Setup
-
-
-
-\- [ ] Initialize project
-
-\- [ ] Configure TypeScript
-
-\- [ ] Configure Tailwind
-
-\- [ ] Configure Git
-
-
-
-\## Phase 2: Authentication
-
-
-
-\- [ ] Create signup page
-
-\- [ ] Create login page
-
-\- [ ] Configure authentication
-
-\- [ ] Protect dashboard
-
-\- [ ] Test authentication
-
-
-
-\## Phase 3: Notes
-
-
-
-\- [ ] Create database table
-
-\- [ ] Create notes service
-
-\- [ ] Create notes UI
-
-\- [ ] Create note form
-
-\- [ ] Add edit functionality
-
-\- [ ] Add delete functionality
-
-\- [ ] Add tests
-
-Then work like this:
-
-TASK-001
-
-↓
-
-Implement
-
-↓
-
-Test
-
-↓
-
-Review
-
-↓
-
-Mark complete
-
-↓
-
-TASK-002
-
----
-
-
-
-# 15. Step 12: Create DECISIONS.md
-
-This stores important technical decisions.
-
-Example:
-
-\# Architecture Decisions
-
-
-
-\## ADR-001
-
-
-
-Decision:
-
-Use Supabase for the database.
-
-
-
-Reason:
-
-Provides PostgreSQL, authentication and backend
-
-services without managing our own infrastructure.
-
-
-
-\## ADR-002
-
-
-
-Decision:
-
-Use Next.js instead of React + Express.
-
-
-
-Reason:
-
-The application does not require a separate backend
-
-and we want a unified full-stack application.
-
-This prevents AI from randomly changing architectural decisions later.
-
----
-
-
-
-# 16. Step 13: Create MEMORY.md
-
-Think of this as the project's current state.
-
-Example:
-
-\# Project Memory
-
-
-
-\## Current Status
-
-
-
-Authentication completed.
-
-
-
-Notes feature in progress.
-
-
-
-\## Completed
-
-
-
-\- Project setup
-
-\- Git setup
-
-\- Database setup
-
-\- Authentication
-
-
-
-\## Current Task
-
-
-
-TASK-012
-
-
-
-\## Known Issues
-
-
-
-\- Mobile navbar needs improvement.
-
-\- Notes loading state is incomplete.
-
-
-
-\## Next Step
-
-
-
-Complete note creation.
-
-A useful distinction is:
-
-DECISIONS.md
-
-Permanent decisions
-
-
-
-MEMORY.md
-
-Current project state
-
----
-
-
-
-# 17. Step 14: Create TEST_PLAN.md
-
-Define what "working" actually means.
-
-\# Test Plan
-
-
-
-\## Authentication
-
-
-
-\- User can signup
-
-\- User can login
-
-\- Invalid credentials show error
-
-\- Logged-out users cannot access dashboard
-
-
-
-\## Notes
-
-
-
-\- User can create note
-
-\- User can edit note
-
-\- User can delete note
-
-\- User cannot access another user's note
-
-
-
-\## Responsive
-
-
-
-Test at:
-
-
-
-\- 375px
-
-\- 768px
-
-\- 1440px
-
-This becomes your testing checklist later.
-
----
-
-
-
-# 18. Step 15: Create SECURITY.md
-
-For production projects:
-
-\# Security Requirements
-
-
-
-\## Authentication
-
-
-
-Private routes require authentication.
-
-
-
-\## Authorization
-
-
-
-Users can only access resources they own.
-
-
-
-\## Secrets
-
-
-
-Never expose secrets to client-side code.
-
-
-
-\## Database
-
-
-
-Use appropriate access policies.
-
-
-
-\## Input
-
-
-
-Validate all user input.
-
-
-
-\## APIs
-
-
-
-Validate request body and parameters.
-
-
-
-\## File Uploads
-
-
-
-Validate:
-
-
-
-\- File type
-
-\- File size
-
-\- Filename
-
-Security should not be added five minutes before deployment.
-
----
-
-
-
-# 19. Step 16: Create .env.example
-
-Never put real API keys inside your source code.
-
-Instead:
-
-DATABASE_URL=
-
-SUPABASE_URL=
-
-SUPABASE_ANON_KEY=
-
-OPENAI_API_KEY=
-
-STRIPE_SECRET_KEY=
-
-Then your local environment contains the real values:
-
-.env.local
-
-Your repository should contain:
-
-.env.example
-
-not your actual secrets.
-
----
-
-
-
-# 20. Step 17: Give the AI Project Context
-
-Now open your AI coding tool.
-
-Don't immediately say:
-
-Build my app.
-
-Start with:
-
-Read the following files before making any changes:
-
-
-
-PRD.md
-
-ARCHITECTURE.md
-
-DESIGN.md
-
-RULES.md
-
-TASKS.md
-
-
-
-Do not modify anything yet.
-
-
+- `PRD.md`
+- `ARCHITECTURE.md`
+- `DESIGN.md`
+- `RULES.md`
+- `TASKS.md`
 
 First:
 
-1\. Understand the product.
+1. Explain your understanding of the product and MVP.
+2. Summarize the architecture and design requirements.
+3. Identify missing requirements, contradictions and technical risks.
+4. Inspect the existing repository and identify reusable functionality.
+5. Review the dependencies and development environment.
+6. Propose an implementation plan for the first incomplete task.
 
-2\. Understand the architecture.
+**Constraints**
 
-3\. Review the design system.
+- Do not write or modify code yet.
+- Do not install dependencies or change configuration.
+- Do not invent missing requirements.
+- Identify assumptions and request clarification where necessary.
 
-4\. Review the development rules.
+Return the findings, risks and proposed plan for review before implementation.
 
-5\. Review the current tasks.
+Once the plan is approved, proceed one task at a time.
 
-6\. Identify missing information.
+## Phase 6 — Implement one feature at a time
 
-7\. Explain the implementation plan for TASK-001.
+The source recommends this development loop:
 
+<img width="560" height="397" alt="image" src="https://github.com/user-attachments/assets/549e973b-24e5-4232-be81-28e534820183" />
 
 
-Do not write code yet.
+### Use vertical slices
 
-This lets the AI understand the project before touching it.
+Instead of completing the entire frontend, then the entire backend and then the database, implement complete user workflows.
 
----
+For a notes application:
 
+1. Create a note form.
+2. Validate the submitted fields.
+3. Save the note through the server-side data layer.
+4. Display the saved note.
+5. Edit and save an existing note.
+6. Delete a note and update the interface.
+7. Test the complete flow.
 
+This approach makes errors easier to isolate and ensures that each increment delivers usable functionality.
 
-# 21. Step 18: Build One Feature at a Time
+### Reusable feature implementation prompt
 
-Use this workflow:
+# Implement One Feature
 
-Understand
+## Context
 
-↓
+We are building a student notes application. Read the relevant project documentation and inspect the existing implementation before editing.
 
-Plan
+## Task
 
-↓
+Implement: [ONE SPECIFIC FEATURE]
 
-Implement
+## Relevant Files
 
-↓
+[LIST RELEVANT FILES OR DIRECTORIES]
 
-Test
+## Constraints
 
-↓
+- Follow `PRD.md`, `ARCHITECTURE.md`, `DESIGN.md` and `RULES.md`.
+- Reuse existing components and services where appropriate.
+- Do not introduce a duplicate data-access layer.
+- Do not modify unrelated files.
+- Validate inputs and enforce server-side authorization.
+- Do not add dependencies unless necessary and approved.
 
-Review
+## Acceptance Criteria
 
-↓
+- [LIST OBSERVABLE EXPECTED BEHAVIORS]
+- Invalid input produces appropriate errors.
+- Loading, success, empty and failure states are handled where applicable.
+- Data persists correctly where persistence is required.
+- Users cannot access resources they do not own.
 
-Commit
+## Verification
 
-For example:
+1. Add or update appropriate tests.
+2. Run linting, type checking and relevant tests.
+3. Run a production build when appropriate.
+4. Report actual command results and any failures.
 
-TASK-001
+## Final Report
 
-Create signup page
+List changed files, implemented behavior, tests executed, known limitations and remaining issues. Distinguish verified results from unverified assumptions.
 
-Then:
+## Phase 7 — Test and debug systematically
 
-TASK-002
+After each meaningful implementation, run the checks supported by the project:
 
-Implement signup logic
-
-Then:
-
-TASK-003
-
-Add validation
-
-Then:
-
-TASK-004
-
-Add authentication tests
-
----
-
-
-
-# 22. Step 19: Use Vertical Slices
-
-Instead of building:
-
-Entire frontend
-
-↓
-
-Entire backend
-
-↓
-
-Database
-
-Build a complete user flow.
-
-Example:
-
-Signup
-
-↓
-
-Login
-
-↓
-
-Dashboard
-
-↓
-
-Create Note
-
-↓
-
-Save Note
-
-↓
-
-Display Note
-
-Then:
-
-Edit Note
-
-↓
-
-Save
-
-↓
-
-Display updated note
-
-Then:
-
-Delete Note
-
-↓
-
-Confirm
-
-↓
-
-Database update
-
-↓
-
-UI update
-
-This makes debugging much easier.
-
----
-
-
-
-# 23. Step 20: Use a Structured Prompt
-
-A good coding prompt has six parts:
-
-CONTEXT
-
-TASK
-
-FILES
-
-CONSTRAINTS
-
-ACCEPTANCE CRITERIA
-
-TESTING
-
-Example:
-
-CONTEXT
-
-
-
-We are building a student notes application.
-
-Read PRD.md, ARCHITECTURE.md and RULES.md.
-
-
-
-TASK
-
-
-
-Implement note creation.
-
-
-
-FILES
-
-
-
-Relevant files:
-
-src/features/notes/
-
-src/services/
-
-src/types/
-
-
-
-CONSTRAINTS
-
-
-
-\- Follow the existing architecture.
-
-\- Reuse existing components.
-
-\- Do not create a second database layer.
-
-\- Do not modify unrelated files.
-
-\- Validate input.
-
-
-
-ACCEPTANCE CRITERIA
-
-
-
-\- Logged-in user can create a note.
-
-\- Title is required.
-
-\- Content is required.
-
-\- Invalid input shows an error.
-
-\- Note is saved to the database.
-
-\- New note appears in the UI.
-
-
-
-TESTING
-
-
-
-Add appropriate tests.
-
-Run lint.
-
-Run type checking.
-
-Run relevant tests.
-
-
-
-After implementation, report:
-
-
-
-1\. Files changed
-
-2\. What was implemented
-
-3\. Tests executed
-
-4\. Remaining issues
-
----
-
-
-
-# 24. Step 21: Never Give AI Huge Tasks
-
-### Bad
-
-Build the entire SaaS application.
-
-### Better
-
-Build authentication.
-
-### Best
-
-Create the signup UI.
-
-
-
-Do not implement authentication yet.
-
-
-
-Follow DESIGN.md.
-
-
-
-Requirements:
-
-\- Email field
-
-\- Password field
-
-\- Confirm password field
-
-\- Validation
-
-\- Loading state
-
-\- Error state
-
-\- Mobile responsive
-
-
-
-Do not modify unrelated files.
-
-Small tasks give AI less room to misunderstand your project.
-
----
-
-
-
-# 25. Step 22: Test Every Feature
-
-After implementing a feature:
-
-Code
-
-↓
-
-Lint
-
-↓
-
-Type check
-
-↓
-
-Unit tests
-
-↓
-
-Integration tests
-
-↓
-
-E2E tests
-
-### Type check
-
-npm run typecheck
-
-### Lint
-
+```
 npm run lint
-
-### Tests
-
+npm run typecheck
 npm test
-
-### Build
-
 npm run build
+```
 
-Your exact commands depend on the project's configuration.
+These are example commands from the guide; the project must define the corresponding scripts. Do not report a check as passed if it was not actually executed.
 
----
+### Testing layers
 
+<img width="551" height="156" alt="image" src="https://github.com/user-attachments/assets/fc4efdd5-fab8-4cbb-a4ec-d77e6ce0f5de" />
 
 
-# 26. Step 23: Use End-to-End Testing
+An example end-to-end test should cover signup, login, note creation, page refresh, note persistence, editing, deletion and logout.
 
-E2E testing checks the application from the user's perspective.
+### Debug with evidence
 
-For example:
+When something fails, provide the actual error, expected behavior, observed behavior, reproduction steps and constraints.
 
-Open website
+# Debugging Prompt
 
-↓
+Investigate the following issue without changing code initially.
 
-Signup
+## Error
 
-↓
+[PASTE THE ACTUAL ERROR]
 
-Login
+## Expected Behavior
 
-↓
+[WHAT SHOULD HAPPEN]
 
-Create note
+## Actual Behavior
 
-↓
+[WHAT HAPPENS INSTEAD]
 
-Refresh
+## Reproduction Steps
 
-↓
+[MINIMAL STEPS TO REPRODUCE]
 
-Verify note exists
+## Constraints
 
-↓
+[FILES, DATABASE SCHEMA OR BEHAVIOR THAT MUST NOT CHANGE]
 
-Edit note
-
-↓
-
-Delete note
-
-↓
-
-Logout
-
-Tools such as Playwright are useful for automating browser-based tests.
-
----
-
-
-
-# 27. Step 24: Review AI-Generated Code
-
-Don't assume:
-
-"It compiled, so it's correct."
-
-Ask the AI:
-
-Review the implementation against:
-
-
-
-PRD.md
-
-ARCHITECTURE.md
-
-DESIGN.md
-
-RULES.md
-
-TEST_PLAN.md
-
-SECURITY.md
-
-
-
-Check:
-
-
-
-\- Correctness
-
-\- Architecture
-
-\- Security
-
-\- Error handling
-
-\- Accessibility
-
-\- Responsive design
-
-\- Performance
-
-\- Code duplication
-
-
-
-Do not modify anything yet.
-
-
-
-Report all issues first.
-
-Then fix them one by one.
-
----
-
-
-
-# 28. Step 25: Learn How to Debug With AI
-
-When something breaks, don't say:
-
-Fix this.
-
-Give the AI structured information.
-
-ERROR
-
-
-
-[paste error]
-
-
-
-EXPECTED BEHAVIOR
-
-
-
-The user should be redirected to the dashboard.
-
-
-
-ACTUAL BEHAVIOR
-
-
-
-The page shows a 500 error.
-
-
-
-STEPS TO REPRODUCE
-
-
-
-1\. Login
-
-2\. Click Dashboard
-
-3\. Error appears
-
-
-
-CONSTRAINT
-
-
-
-Do not change the database schema.
-
-Then ask:
-
-Do not modify code yet.
-
-
-
-Find the root cause.
-
-
-
-Explain:
-
-1\. What is failing?
-
-2\. Why is it failing?
-
-3\. Which file is responsible?
-
-4\. What is the smallest fix?
-
-5\. How will we test the fix?
-
-Then:
-
-Implement the smallest fix.
-
-
+First identify the root cause. Explain the failing component, supporting evidence, smallest appropriate fix and how to verify it.
 
 Do not refactor unrelated code.
 
+Wait for approval before implementing the fix. After approval, implement the minimal change and run the relevant tests.
 
+## Phase 8 — Review security and code quality
 
-Run the relevant tests.
+Before production, review the implementation against the PRD, architecture, design system, rules, test plan and security requirements.
 
----
+The review should cover:
 
+- Functional correctness and business logic
+- Authentication and server-side authorization
+- Database access policies and ownership checks
+- Input validation and API request validation
+- Secret management and accidental exposure
+- Error handling and logging
+- Accessibility and keyboard navigation
+- Responsive behavior and performance
+- Duplicate code and unnecessary complexity
 
+Ask the AI to report problems before asking it to fix them. Review proposed changes, then test the fixes.
 
-# 29. Step 26: Use Git Throughout Development
+### Protect secrets
 
-After a working feature:
+Keep real values in local environment files and the deployment platform's secret configuration. Commit only a placeholder template.
 
+Example `.env.example`:
+
+```
+DATABASE_URL=
+SUPABASE_URL=
+SUPABASE_ANON_KEY=
+OPENAI_API_KEY=
+STRIPE_SECRET_KEY=
+```
+
+Never place actual credentials in source code or commit local secret files. Client-side environment variables must not contain secrets.
+
+## Phase 9 — Version control and release preparation
+
+After a working, verified feature:
+
+```
 git status
-
-Then:
-
 git add .
-
-Then:
-
 git commit -m "feat: add note creation"
-
-Then:
-
 git push
+```
 
-Use branches for larger projects:
+Review changes before staging them. For larger projects, use feature branches and review changes before merging.
 
-main
-
-│
-
-├── feature/auth
-
-├── feature/notes
-
-├── feature/search
-
-└── fix/mobile-navbar
-
-This protects your working code from AI-generated mistakes.
-
----
-
-
-
-# 30. Step 27: Prepare for Deployment
-
-Before deployment, verify:
+### Pre-deployment checklist
 
 ### Functionality
 
-[ ] Signup
+Signup, login and logout work
 
-[ ] Login
+CRUD operations and forms work
 
-[ ] Logout
+Errors, loading and empty states work
 
-[ ] CRUD operations
+### User experience
 
-[ ] Forms
+Mobile, tablet and desktop checked
 
-[ ] Error handling
-
-[ ] Loading states
-
-[ ] Empty states
-
-### UI
-
-[ ] Mobile
-
-[ ] Tablet
-
-[ ] Desktop
-
-[ ] Accessibility
-
-[ ] Keyboard navigation
+Accessibility and keyboard navigation checked
 
 ### Security
 
-[ ] No secrets in Git
+No secrets committed to Git
 
-[ ] Authentication verified
+Authentication and authorization verified
 
-[ ] Authorization verified
+Database policies and input validation checked
 
-[ ] Database security configured
+### Engineering
 
-[ ] Input validation
+Lint and type checks pass
 
-[ ] API validation
+Relevant automated tests pass
 
-### Code
+Production build succeeds
 
-[ ] TypeScript passes
+## 0 / 11
 
-[ ] Lint passes
+Release checks marked complete
 
-[ ] Tests pass
+Reset
 
-[ ] Production build passes
+This checklist tracks your selections; it does not execute tests or independently certify release readiness.
 
----
+## Phase 10 — Preview, deploy and verify production
 
+The source's deployment pipeline is:
+<img width="558" height="325" alt="image" src="https://github.com/user-attachments/assets/dd8893e2-5ee7-42ce-bd8c-f5ca1e1e9506" />
 
 
-# 31. Step 28: Deploy to Preview First
+For the example Next.js stack, the guide describes connecting GitHub to Vercel, configuring environment variables, deploying a preview, testing it and then promoting the verified version to production.
 
-Your deployment pipeline should look like:
+Keep development, preview and production configuration separate. Test the actual live URL rather than relying only on localhost.
 
-LOCAL
+### Production QA
 
- ↓
+Check the deployed application for:
 
-PREVIEW
+- Signup, login and core features
+- Database reads and writes
+- Direct URLs and page refreshes
+- Logged-out access to protected routes
+- Invalid input and incorrect credentials
+- Slow network behavior and error handling
+- Empty database states
+- Mobile and desktop layouts
 
- ↓
+### Monitor and maintain
 
-QA
+After release, establish appropriate error tracking, performance monitoring, uptime checks and database backups. Collect feedback, fix issues, test changes and redeploy.
 
- ↓
+Update `TASKS.md`, `MEMORY.md`, `DECISIONS.md`, `README.md` and `ARCHITECTURE.md` whenever the implementation materially changes.
 
-PRODUCTION
+## Final reference: the complete engineering loop
 
-Never make production your first testing environment.
+## For every feature
 
-For example:
+<img width="556" height="273" alt="image" src="https://github.com/user-attachments/assets/38c09e7e-3f61-4a91-8d85-7aab40becab3" />
 
-feature/notes
 
-      ↓
-
-Preview deployment
-
-      ↓
-
-Test
-
-      ↓
-
-Fix
-
-      ↓
-
-Merge
-
-      ↓
-
-Production
-
----
-
-
-
-# 32. Step 29: Deploy to Production
-
-For a Next.js application, Vercel is one common deployment option.
-
-The general workflow is:
-
-GitHub repository
-
-        ↓
-
-Connect to Vercel
-
-        ↓
-
-Configure environment variables
-
-        ↓
-
-Deploy
-
-        ↓
-
-Preview URL
-
-        ↓
-
-Test
-
-        ↓
-
-Production
-
-You can also use the Vercel CLI when appropriate.
-
-vercel
-
-After testing:
-
-vercel --prod
-
----
-
-
-
-# 33. Step 30: Configure Environment Variables
-
-Your local environment might contain:
-
-.env.local
-
-Production should have its own values.
-
-For example:
-
-Development
-
-DATABASE_URL=development-db
-
-
-
-Preview
-
-DATABASE_URL=staging-db
-
-
-
-Production
-
-DATABASE_URL=production-db
-
-Don't assume your local environment is identical to production.
-
----
-
-
-
-# 34. Step 31: Production QA
-
-After deployment, test the actual live application.
-
-Don't only test localhost.
-
-Check:
-
-Live URL
-
-↓
-
-Signup
-
-↓
-
-Login
-
-↓
-
-Core features
-
-↓
-
-Database operations
-
-↓
-
-Error handling
-
-↓
-
-Mobile
-
-↓
-
-Desktop
-
-Also test:
-
-- Refreshing pages
-- Direct URLs
-- Logged-out access
-- Invalid inputs
-- Slow network
-- Empty database
-- Wrong credentials
-
----
-
-
-
-# 35. Step 32: Monitor the Application
-
-Deployment isn't the end.
-
-The production lifecycle is:
-
-Deploy
-
-↓
-
-Monitor
-
-↓
-
-Collect feedback
-
-↓
-
-Find bugs
-
-↓
-
-Fix
-
-↓
-
-Test
-
-↓
-
-Deploy again
-
-Consider adding:
-
-- Error tracking
-- Analytics
-- Performance monitoring
-- Database backups
-- Uptime monitoring
-
----
-
-
-
-# 36. Step 33: Maintain Project Documentation
-
-As the project changes, update:
-
-TASKS.md
-
-MEMORY.md
-
-DECISIONS.md
-
-README.md
-
-ARCHITECTURE.md
-
-Don't let documentation describe an application that no longer exists.
-
-The AI needs accurate context.
-
----
-
-
-
-# 37. The Recommended Project Structure
-
-For a serious beginner project:
-
-student-dashboard/
-
-│
-
-├── docs/
-
-│   │
-
-│   ├── PRD.md
-
-│   ├── ARCHITECTURE.md
-
-│   ├── DESIGN.md
-
-│   ├── TEST_PLAN.md
-
-│   ├── SECURITY.md
-
-│   ├── DECISIONS.md
-
-│   └── MEMORY.md
-
-│
-
-├── .cursor/
-
-│   └── rules/
-
-│       ├── general.mdc
-
-│       ├── frontend.mdc
-
-│       ├── backend.mdc
-
-│       └── testing.mdc
-
-│
-
-├── src/
-
-│   ├── app/
-
-│   ├── components/
-
-│   ├── features/
-
-│   ├── services/
-
-│   ├── lib/
-
-│   ├── types/
-
-│   └── utils/
-
-│
-
-├── tests/
-
-│   ├── unit/
-
-│   ├── integration/
-
-│   └── e2e/
-
-│
-
-├── public/
-
-│
-
-├── .env.example
-
-├── .gitignore
-
-├── README.md
-
-├── TASKS.md
-
-├── package.json
-
-└── ...
-
----
-
-
-
-# 38. What Each File Does
-
-| **File**        | **Purpose**                        | **Stage**     |
-| --------------- | ---------------------------------- | ------------- |
-| PRD.md          | What are we building?              | Planning      |
-| ARCHITECTURE.md | How will we build it?              | Planning      |
-| DESIGN.md       | How should it look?                | Planning      |
-| RULES.md        | How should AI code?                | Planning      |
-| TASKS.md        | What should we build next?         | Development   |
-| DECISIONS.md    | Why did we make this decision?     | Development   |
-| MEMORY.md       | What is the current project state? | Development   |
-| TEST_PLAN.md    | How do we verify it?               | Testing       |
-| SECURITY.md     | How do we protect it?              | Development   |
-| .env.example    | What configuration is required?    | Setup         |
-| README.md       | How do humans use the project?     | Documentation |
-
----
-
-
-
-# 39. The Minimum Setup for Beginners
-
-If all of this feels overwhelming, start with only:
-
-my-project/
-
-│
-
-├── PRD.md
-
-├── RULES.md
-
-├── TASKS.md
-
-├── README.md
-
-├── .env.example
-
-│
-
-└── src/
-
-Then add:
-
-ARCHITECTURE.md
-
-DESIGN.md
-
-TEST_PLAN.md
-
-SECURITY.md
-
-DECISIONS.md
-
-MEMORY.md
-
-as your project becomes more complex.
-
----
-
-
-
-# 40. The Professional Vibe Coding Loop
-
-For every feature, follow this exact loop:
-
-1\. READ
-
-   ↓
-
-2\. UNDERSTAND
-
-   ↓
-
-3\. PLAN
-
-   ↓
-
-4\. IMPLEMENT
-
-   ↓
-
-5\. TEST
-
-   ↓
-
-6\. REVIEW
-
-   ↓
-
-7\. FIX
-
-   ↓
-
-8\. COMMIT
-
-   ↓
-
-9\. UPDATE DOCUMENTATION
-
-Then move to the next feature.
-
----
-
-
+The standard for production readiness: requirements are met, relevant tests have actually passed, security controls are verified, deployment has been tested, and operational monitoring and recovery procedures are in place. AI-generated code is a starting point for verification—not proof that the application is production-ready.
