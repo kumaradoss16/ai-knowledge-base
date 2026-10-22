@@ -1,6 +1,6 @@
 # Vibe Coding: A Complete Beginner-to-Production Guide
 
-Based on your uploaded Markdown file, the guide should take you through the entire software development lifecycle—from defining an idea to operating a deployed application. The key is to combine AI-assisted coding with engineering practices: documentation, incremental implementation, testing, security, version control, and production monitoring.
+Based on your uploaded Markdown file, the guide should take you through the entire software development lifecycle-from defining an idea to operating a deployed application. The key is to combine AI-assisted coding with engineering practices: documentation, incremental implementation, testing, security, version control, and production monitoring.
 
 I'll preserve the source's core workflow and examples while organizing it into a practical, visually structured guide with clear stages, checklists, and reusable prompts.
 
@@ -9,7 +9,7 @@ I'll preserve the source's core workflow and examples while organizing it into a
 <img width="560" height="403" alt="image" src="https://github.com/user-attachments/assets/17bc4de7-036f-4b7a-8431-1b4b0dd712cf" />
 
 
-## Phase 1 — Define the product
+## Phase 1 - Define the product
 
 Before asking an AI coding tool to build anything, answer five questions.
 
@@ -18,7 +18,7 @@ Before asking an AI coding tool to build anything, answer five questions.
 
 Research users, competing products, technical feasibility, APIs, authentication, database needs, hosting and operating costs. Prefer official technical documentation when making implementation decisions.
 
-## Phase 2 — Choose your tools and stack
+## Phase 2 - Choose your tools and stack
 
 The uploaded guide identifies these AI coding tools and their typical use cases.
 
@@ -67,7 +67,7 @@ git init
 
 Create a GitHub repository and connect it to your local project. Use Git from the beginning so that you can inspect changes and recover from unwanted AI modifications.
 
-## Phase 3 — Create the project documentation
+## Phase 3 - Create the project documentation
 
 The guide treats project documentation as persistent context for the AI coding agent.
 
@@ -150,7 +150,7 @@ Document boundaries such as:
 
 `DESIGN.md` should define consistent typography, color tokens, buttons, cards, responsive layouts, loading states, empty states, error states and accessible forms.
 
-## Phase 4 — Establish AI coding rules and tasks
+## Phase 4 - Establish AI coding rules and tasks
 
 Use `RULES.md` as the project's AI rulebook. The source recommends rules such as:
 
@@ -197,7 +197,7 @@ Example `TASKS.md`:
 
 Maintain a separate `DECISIONS.md` for durable technical decisions and `MEMORY.md` for the current task, completed work, known issues and next step.
 
-## Phase 5 — Give the AI the right context
+## Phase 5 - Give the AI the right context
 
 Do not start with “Build my entire application.”
 
@@ -235,7 +235,7 @@ Return the findings, risks and proposed plan for review before implementation.
 
 Once the plan is approved, proceed one task at a time.
 
-## Phase 6 — Implement one feature at a time
+## Phase 6 - Implement one feature at a time
 
 The source recommends this development loop:
 
@@ -302,7 +302,7 @@ Implement: [ONE SPECIFIC FEATURE]
 
 List changed files, implemented behavior, tests executed, known limitations and remaining issues. Distinguish verified results from unverified assumptions.
 
-## Phase 7 — Test and debug systematically
+## Phase 7 - Test and debug systematically
 
 After each meaningful implementation, run the checks supported by the project:
 
@@ -356,7 +356,7 @@ Do not refactor unrelated code.
 
 Wait for approval before implementing the fix. After approval, implement the minimal change and run the relevant tests.
 
-## Phase 8 — Review security and code quality
+## Phase 8 - Review security and code quality
 
 Before production, review the implementation against the PRD, architecture, design system, rules, test plan and security requirements.
 
@@ -390,7 +390,7 @@ STRIPE_SECRET_KEY=
 
 Never place actual credentials in source code or commit local secret files. Client-side environment variables must not contain secrets.
 
-## Phase 9 — Version control and release preparation
+## Phase 9 - Version control and release preparation
 
 After a working, verified feature:
 
@@ -443,7 +443,7 @@ Reset
 
 This checklist tracks your selections; it does not execute tests or independently certify release readiness.
 
-## Phase 10 — Preview, deploy and verify production
+## Phase 10 - Preview, deploy and verify production
 
 The source's deployment pipeline is:
 <img width="558" height="325" alt="image" src="https://github.com/user-attachments/assets/dd8893e2-5ee7-42ce-bd8c-f5ca1e1e9506" />
@@ -479,4 +479,4 @@ Update `TASKS.md`, `MEMORY.md`, `DECISIONS.md`, `README.md` and `ARCHITECTURE.md
 <img width="556" height="273" alt="image" src="https://github.com/user-attachments/assets/38c09e7e-3f61-4a91-8d85-7aab40becab3" />
 
 
-The standard for production readiness: requirements are met, relevant tests have actually passed, security controls are verified, deployment has been tested, and operational monitoring and recovery procedures are in place. AI-generated code is a starting point for verification—not proof that the application is production-ready.
+The standard for production readiness: requirements are met, relevant tests have actually passed, security controls are verified, deployment has been tested, and operational monitoring and recovery procedures are in place. AI-generated code is a starting point for verification-not proof that the application is production-ready.
