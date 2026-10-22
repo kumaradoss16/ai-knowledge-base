@@ -4,7 +4,7 @@ These 20 prompts form a structured software engineering workflow for AI coding a
 
 **How to use them:** Run the prompts sequentially, save the generated project documents in your repository, review and approve the specifications, and then allow the coding agent to implement and verify the software incrementally.
 
-## Phase 1 — Product Definition and Technical Specifications
+## Phase 1 - Product Definition and Technical Specifications
 
 ### Prompt 1. Product Requirements Document (PRD)
 
@@ -234,7 +234,7 @@ OUTPUT
 Return only clean Markdown ready to save as AGENTS.md.
 ```
 
-## Phase 2 — Planning and Project Initialization
+## Phase 2 - Planning and Project Initialization
 
 ### Prompt 7. Implementation Planning
 
@@ -310,7 +310,7 @@ OUTPUT
 Implement the setup, verify it runs successfully, and briefly report what was created, commands used, and any decisions requiring approval.
 ```
 
-## Phase 3 — Core Implementation
+## Phase 3 - Core Implementation
 
 ### Prompt 9. Feature Development
 
@@ -506,7 +506,7 @@ OUTPUT
 Implement and verify the integration. Report configuration, required environment variables, files changed, tests performed, and remaining limitations.
 ```
 
-## Phase 4 — Quality Assurance, Debugging, and Security
+## Phase 4 - Quality Assurance, Debugging, and Security
 
 ### Prompt 14. Testing and Quality Assurance
 
@@ -662,7 +662,7 @@ OUTPUT
 Report critical findings, refactoring performed, files changed, tests run, and remaining technical debt.
 ```
 
-## Phase 5 — Deployment and Production Operations
+## Phase 5 - Deployment and Production Operations
 
 ### Prompt 18. Deployment and Production Setup
 
@@ -826,4 +826,4 @@ Use this checklist to track progress across the lifecycle.
 4. Distinguish **implemented**, **tested**, and **verified**. They are three different states.
 5. A coding agent's completion report is not, by itself, proof that an application is production-ready.
 
-**Bottom line:** This is a reusable prompt library for managing AI-assisted software development systematically—from product requirements through implementation and production readiness.
+**Bottom line:** This is a reusable prompt library for managing AI-assisted software development systematically-from product requirements through implementation and production readiness.
