@@ -1,4 +1,4 @@
-# AI Tools & Models Catalog - Batch 1 (Records 001–050)
+# AI Tools and Models Catalog - Batch 1 (Records 001–050)
 
 > Source: [kumaradoss16/ai-knowledge-base › ai-tools-models-list.md](https://github.com/kumaradoss16/ai-knowledge-base/blob/main/ai-tools/ai-tools-models-list.md)
 > Last verified (per source): 2026-10-24 · Records: 50 (30 tools, 20 models) · `verified`: 20 · `partially_verified`: 30
