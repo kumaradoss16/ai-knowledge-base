@@ -1,4 +1,4 @@
-# AI Tools & Models Catalog — Batch 1 (Records 001–050)
+# AI Tools & Models Catalog - Batch 1 (Records 001–050)
 
 > Source: [kumaradoss16/ai-knowledge-base › ai-tools-models-list.md](https://github.com/kumaradoss16/ai-knowledge-base/blob/main/ai-tools/ai-tools-models-list.md)
 > Last verified (per source): 2026-10-24 · Records: 50 (30 tools, 20 models) · `verified`: 20 · `partially_verified`: 30
@@ -837,7 +837,7 @@
 
 ---
 
-# Batch 2 — Records 051–100
+# Batch 2 - Records 051–100
 
 Batch 2 prioritizes categories underrepresented in Batch 1: MCP infrastructure, guardrails, customer support, marketing and creative tools, robotics, OCR/document understanding, inference platforms, embeddings, reranking, and music models. All entries exclude the 50 canonical IDs accepted in Batch 1. [anthropic](https://www.anthropic.com/research/model-context-protocol)
 
@@ -1683,7 +1683,7 @@ Batch 2 prioritizes categories underrepresented in Batch 1: MCP infrastructure, 
 
 ---
 
-# Batch 3 — Records 101–150
+# Batch 3 - Records 101–150
 
 Batch 3 increases model coverage to correct the tool-heavy distribution of earlier batches, adding code, small, general-purpose, translation, speech, embedding, vision, and video-generation models. All entries exclude the 100 canonical IDs already accepted. [jina](https://jina.ai/en-US/models/)
 
@@ -2521,7 +2521,7 @@ Batch 3 increases model coverage to correct the tool-heavy distribution of earli
 
 ---
 
-# Batch 4 — Records 151–200
+# Batch 4 - Records 151–200
 
 Batch 4 adds document-AI tooling, local chat and RAG platforms, audio workflows, and a model-heavy set covering speech, audio, multimodal, OCR, domain-specific, reranking, vision, image, and general-purpose models. All entries exclude the 150 canonical IDs already accepted. [docs.cohere](https://docs.cohere.com/docs/rerank)
 
@@ -3365,7 +3365,7 @@ Batch 4 adds document-AI tooling, local chat and RAG platforms, audio workflows,
 
 ---
 
-# Batch 5 — Records 201–250
+# Batch 5 - Records 201–250
 
 Batch 5 continues increasing model coverage with speech, embedding, multimodal, code, and general-purpose models, while adding local inference and deployment tooling. All entries exclude the 200 canonical IDs already accepted. [legal.mistral](https://legal.mistral.ai/ai-governance/models/)
 
@@ -4205,7 +4205,7 @@ Batch 5 continues increasing model coverage with speech, embedding, multimodal, 
 
 ---
 
-# Batch 6 — Records 251–300
+# Batch 6 - Records 251–300
 
 Batch 6 adds speech tooling, evaluation frameworks, and another model-heavy set covering TTS, speech recognition, video generation, domain models, embeddings, vision, and efficient language models. All entries exclude the 250 canonical IDs already accepted. [catalog.ngc.nvidia](https://catalog.ngc.nvidia.com/orgs/nvidia/nvigisdk/models/openvoice/-)
 
@@ -5047,7 +5047,7 @@ Batch 6 adds speech tooling, evaluation frameworks, and another model-heavy set 
 
 ---
 
-# Batch 7 — Records 301–350
+# Batch 7 - Records 301–350
 
 Batch 7 adds agentic coding and speech tooling, then emphasizes FLUX image-model variants, Qwen3 and Gemma releases, speech models, medical models, translation models, and code models. All entries exclude the 300 canonical IDs already accepted. [build.nvidia](https://build.nvidia.com/black-forest-labs/flux_1-schnell/modelcard)
 
@@ -5885,7 +5885,7 @@ Batch 7 adds agentic coding and speech tooling, then emphasizes FLUX image-model
 
 ---
 
-# Batch 8 — Records 351–400
+# Batch 8 - Records 351–400
 
 Batch 8 adds speech, agent, and observability tooling, then emphasizes Wan and HunyuanVideo releases, speech models, embeddings, vision models, code models, and large general-purpose LLMs. All entries exclude the 299 canonical IDs already accepted. [docs.aws.amazon](https://docs.aws.amazon.com/us_en/bedrock/latest/userguide/model-card-qwen-qwen3-32b.md)
 
@@ -6725,7 +6725,7 @@ Batch 8 adds speech, agent, and observability tooling, then emphasizes Wan and H
 
 ---
 
-# Batch 9 — Records 401–450
+# Batch 9 - Records 401–450
 
 Batch 9 adds speech-platform tooling and another model-heavy set covering Whisper sizes, DeepSeek releases, Qwen2.5 Coder sizes, Llama and Gemma variants, embeddings, vision models, and speech models. All entries exclude the 347 canonical IDs already accepted. [llama](https://www.llama.com/docs/model-cards-and-prompt-formats/llama3_2/)
 
