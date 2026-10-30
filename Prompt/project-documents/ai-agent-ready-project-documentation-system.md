@@ -21,7 +21,7 @@ Use:
 
 # 1. BEFORE - Pre-Coding and Context Injection
 
-Create the foundational specifications before implementation begins. They define what is being built, how it should work and which boundaries agents must respect.
+Create the foundational specifications before implementation begins. Build them in dependency order: product intent first, then scope, architecture and runtime behavior, then data/API/security/UI contracts, then agent operating instructions and validation. A downstream document must reference its upstream sources and must not silently redefine them.
 
 ## Foundational files
 
@@ -31,6 +31,7 @@ Create the foundational specifications before implementation begins. They define
 | `docs/01-foundation/SCOPE.md` | Scope control | Included features, excluded features, deferred ideas, MVP boundaries and conditions for expanding scope. Agents must not silently add out-of-scope functionality. |
 | `docs/01-foundation/ARCHITECTURE.md` | System architecture | Architecture style, component diagram, module responsibilities, technology boundaries, communication and data flows, integration boundaries, error handling, observability and deployment model. Agents must consult it before introducing services, dependencies or architectural layers. |
 | `docs/01-foundation/TECH_STACK.md` | Technology constraints | Approved languages, frameworks, versions, libraries, tooling, runtime requirements and permitted alternatives. Agents must not substitute technologies or add major dependencies without approval. |
+| `docs/01-foundation/EXECUTION_ENGINE.md` | Workflow runtime specification | Workflow and task state machines, legal transitions, scheduling, dependencies, retries, timeouts, cancellation, pause/resume, approval gates, persistence boundaries, restart recovery, idempotency and failure reconciliation. For orchestration products, this is a core product specification; runtime agents must follow it and tests must verify it. |
 | `docs/01-foundation/DESIGN.md` | UI/UX specification | Design principles, color and typography tokens, spacing, components, navigation, layouts, responsive behavior, loading/empty/error states, accessibility and interaction patterns. Frontend agents consult it before creating or changing UI. |
 | `docs/01-foundation/DATABASE.md` | Data architecture | Database engine, entities, relationships, keys, constraints, indexes, migrations, validation, transactions, backup/recovery and retention/deletion rules. Agents must read it before changing schemas or persistence behavior. |
 | `docs/01-foundation/API_SPECIFICATION.md` | API contract | Endpoints, methods, request/response schemas, validation, authentication, authorization, error formats, versioning and compatibility rules. Agents must follow it when implementing or changing API contracts. |
@@ -572,24 +573,251 @@ Modify approved files, follow architecture rules and add tests.
 ### VERIFY
 Run tests, inspect the diff, review security implications and update project state and documentation.
 
+
 ---
 
-# 6. Minimum set to create before the first line of application code
+# 6. Document dependency, integration and generation system
+
+The documents are not independent files. They form a dependency graph: upstream documents establish decisions and constraints; downstream documents translate those decisions into implementation contracts, tasks, tests and operational guidance.
+
+## 6.1 Source-of-truth hierarchy
+
+Use this authority order when documents disagree:
+
+1. Explicitly approved product decisions and recorded ADRs, within their stated scope.
+2. PRD for product intent and requirements.
+3. SCOPE for release boundaries and exclusions.
+4. ARCHITECTURE for system boundaries and component responsibilities.
+5. Domain specifications: EXECUTION_ENGINE, DATABASE, API_SPECIFICATION, SECURITY and DESIGN.
+6. TECH_STACK for approved technologies and versions.
+7. AGENTS.md and AGENT_WORKFLOW.md for agent process and permissions.
+8. TASKS, CURRENT_STATE, TODO, session notes and other status documents for the current implementation snapshot.
+9. Generated summaries, handoffs and release documents.
+
+This is not permission to ignore code. The running implementation is evidence of current behavior, not automatic authority for intended behavior. When code and specifications disagree, identify whether the code is defective, the specification is stale, or an approved decision has changed. Do not silently choose one.
+
+ADRs record why a decision was made; they do not automatically override a newer approved decision. Update the affected authoritative specification when an ADR changes the current design.
+
+## 6.2 Dependency map: which documents feed other documents?
+
+| Output document | Must be derived from | What it should produce |
+|---|---|---|
+| SCOPE.md | PRD.md, product constraints and release goals | In-scope, out-of-scope and deferred capabilities |
+| ARCHITECTURE.md | PRD.md, SCOPE.md, quality attributes and constraints | Components, boundaries, responsibilities and major data flows |
+| TECH_STACK.md | ARCHITECTURE.md, constraints, platform support and operational needs | Approved technologies, versions and dependency policy |
+| EXECUTION_ENGINE.md | PRD.md, SCOPE.md, ARCHITECTURE.md and reliability requirements | Runtime state machines, scheduling, retries, recovery and approval semantics |
+| DATABASE.md | PRD.md, ARCHITECTURE.md, EXECUTION_ENGINE.md and data-retention/security requirements | Entities, relations, constraints, transactions and migrations |
+| API_SPECIFICATION.md | PRD.md, ARCHITECTURE.md, EXECUTION_ENGINE.md, DATABASE.md and SECURITY.md | Stable request/response contracts, validation and error behavior |
+| SECURITY.md | PRD.md, ARCHITECTURE.md, TECH_STACK.md, data flows and tool/provider threat analysis | Threat model, trust boundaries, controls and security acceptance criteria |
+| DESIGN.md | PRD.md, SCOPE.md, ARCHITECTURE.md and user journeys | Navigation, screens, interactions, states and design system |
+| AGENT_WORKFLOW.md | AGENTS.md, architecture, security, test strategy and approval policy | Repeatable task lifecycle for AI agents |
+| TEST_PLAN.md | PRD acceptance criteria, architecture, domain specifications and security requirements | Test layers, scenarios, fixtures, gates and evidence requirements |
+| TASKS.md | PRD, SCOPE, all approved specifications and dependency order | Implementable tasks with acceptance criteria and verification |
+| README.md | Verified repository structure, TECH_STACK, installation/deployment docs and current features | Accurate project entry point |
+| USER_GUIDE.md | Implemented and tested user journeys, DESIGN and released feature behavior | User-facing instructions |
+| DEPLOYMENT.md / INSTALLATION.md | TECH_STACK, architecture, configuration, security and verified build process | Reproducible setup and release procedures |
+| TEST_REPORT.md | TEST_PLAN plus actual test/build/security outputs | Evidence-based release validation |
+| RELEASE_NOTES.md | Merged changes, completed tasks, changelog and known issues | User-visible release summary |
+| CURRENT_STATE.md / NEXT_SESSION.md | Actual repository inspection, task tracker, test results and open issues | Verified development snapshot and handoff |
+
+A downstream document may link to upstream requirements and restate only the details needed for implementation. Avoid copying whole sections: duplication creates drift.
+
+## 6.3 Recommended authoring order
+
+Use this sequence to create the documents. Some documents can be drafted in parallel only after their prerequisites are stable.
+
+| Step | Create or update | Inputs to read first | Exit condition |
+|---:|---|---|---|
+| 1 | PRD.md | Problem statement, user research, product constraints | Goals, users, requirements and acceptance criteria are testable |
+| 2 | SCOPE.md | PRD.md | MVP and non-goals are explicit |
+| 3 | ARCHITECTURE.md | PRD.md, SCOPE.md | Component boundaries and key flows are agreed |
+| 4 | TECH_STACK.md | ARCHITECTURE.md, platform constraints | Stack, versions and dependency rules are approved |
+| 5 | EXECUTION_ENGINE.md | PRD.md, SCOPE.md, ARCHITECTURE.md | Runtime semantics and failure behavior are unambiguous |
+| 6 | SECURITY.md (baseline) | Architecture, data flows, providers and tools | Trust boundaries and minimum controls are defined before risky implementation |
+| 7 | DATABASE.md | Execution model, architecture and data requirements | Data model supports lifecycle, recovery and integrity requirements |
+| 8 | API_SPECIFICATION.md | Architecture, execution model, data model and security | Contracts and error semantics are consistent |
+| 9 | DESIGN.md | PRD journeys, scope, API/domain capabilities | Screens and interactions map to real product behavior |
+| 10 | TEST_PLAN.md | PRD acceptance criteria and all domain specifications | Every critical requirement has a verification approach |
+| 11 | TASKS.md | All approved specifications | Tasks are dependency-ordered, estimable and verifiable |
+| 12 | AGENT_WORKFLOW.md and AGENTS.md | All rules and approval boundaries above | Agents have a clear read order, permissions and definition of done |
+
+Create a short root AGENTS.md early so agents have safe initial instructions. Refine it after the detailed specifications exist. The final consolidation step does not mean agents should work without instructions while the other documents are being written.
+
+## 6.4 How to generate a document from existing documents
+
+For each new document, an AI agent should follow this controlled workflow:
+
+1. **Load sources:** Read the required upstream documents and inspect relevant code/configuration if implementation already exists.
+2. **Extract requirements:** List the facts, constraints, IDs, decisions and unresolved questions that the new document depends on.
+3. **Draft, do not invent:** Generate only content supported by those sources. Mark unknowns as `TBD`, assumptions as `ASSUMPTION`, and conflicts as `CONFLICT`.
+4. **Trace requirements:** Link requirements using stable IDs such as `FR-012`, `NFR-004`, `SEC-006` and `AC-021`. Keep identifiers stable once referenced.
+5. **Check consistency:** Compare the draft against its upstream documents and sibling specifications. Identify contradictions, duplicate authority and missing decisions.
+6. **Request decisions:** Ask the human owner to resolve product, architecture, security, data-loss or scope decisions. Do not convert an assumption into an approved decision.
+7. **Review and approve:** Record owner, status and last-reviewed date. Only mark the document `APPROVED` after human review.
+8. **Propagate changes:** When an upstream decision changes, identify and update every dependent document, task and test.
+9. **Commit coherently:** Update related docs together where practical and explain the reason in the commit message.
+
+Suggested document metadata:
+
+```markdown
+> Status: DRAFT | IN_REVIEW | APPROVED | SUPERSEDED
+> Owner: <role or person>
+> Last reviewed: YYYY-MM-DD
+> Sources: PRD.md, ARCHITECTURE.md
+```
+
+Do not use metadata as a substitute for Git history. Keep the source links and review status current.
+
+## 6.5 Requirement traceability
+
+Use stable IDs to connect product intent to implementation and evidence:
+
+```text
+PRD requirement (FR/NFR)
+        |
+        v
+Architecture component / domain specification
+        |
+        v
+API contract or data constraint (where applicable)
+        |
+        v
+TASKS.md implementation task
+        |
+        v
+TEST_PLAN.md test case
+        |
+        v
+TEST_REPORT.md execution evidence
+        |
+        v
+Release note / known limitation
+```
+
+Example:
+
+- `FR-014`: A user can resume an interrupted workflow.
+- `ARCHITECTURE.md`: The runtime owns recovery orchestration.
+- `EXECUTION_ENGINE.md`: Defines recoverable states and restart transition rules.
+- `DATABASE.md`: Defines durable run/task state and transaction boundaries.
+- `TASKS.md`: Implements recovery detection and restoration.
+- `TEST_PLAN.md`: Tests process termination and restart at each recoverable state.
+- `TEST_REPORT.md`: Records the exact test run and result.
+
+A requirement is not complete merely because a task is marked done. It must satisfy its acceptance criteria and have corresponding verification evidence.
+
+## 6.6 Change-impact and document update rules
+
+When a source document changes, inspect its dependents before merging the change:
+
+| Changed source | Review and potentially update |
+|---|---|
+| PRD.md | SCOPE, ARCHITECTURE, DESIGN, domain specifications, TASKS and TEST_PLAN |
+| SCOPE.md | ARCHITECTURE, DESIGN, TASKS, TEST_PLAN and roadmap |
+| ARCHITECTURE.md | TECH_STACK, EXECUTION_ENGINE, DATABASE, API_SPECIFICATION, SECURITY, DESIGN and deployment docs |
+| TECH_STACK.md | Architecture details, setup docs, dependency policy, CI and deployment |
+| EXECUTION_ENGINE.md | DATABASE, API_SPECIFICATION, SECURITY, TASKS and recovery tests |
+| DATABASE.md | API_SPECIFICATION, migrations, repositories, fixtures and data-integrity tests |
+| API_SPECIFICATION.md | Backend routes, clients, integration tests and user-facing behavior |
+| SECURITY.md | Affected components, permissions, secrets handling, tests and operational docs |
+| DESIGN.md | UI components, accessibility checks and user guide |
+| TEST_PLAN.md | CI configuration, test suites and release gates |
+
+Use this impact map as a checklist, not as a command to rewrite every dependent file. Update only what is materially affected and record why unaffected documents remain valid.
+
+## 6.7 AI-agent document-generation prompt
+
+Use this reusable instruction when asking an agent to create or revise one project document:
+
+```text
+Act as the documentation engineer for this repository.
+
+Objective:
+Create or update: <DOCUMENT_PATH>
+
+Before editing:
+1. Read AGENTS.md.
+2. Read every upstream source listed for this document in the
+   documentation dependency map.
+3. Inspect relevant implementation, configuration and tests if they exist.
+4. Identify requirement IDs, approved decisions, assumptions,
+   unresolved questions and conflicts.
+
+Rules:
+- Treat upstream source documents as authoritative within their scope.
+- Do not invent product behavior, APIs, schemas, dependencies,
+  security guarantees or implementation status.
+- Mark missing information as TBD and unsupported proposals as
+  ASSUMPTION; do not present them as approved.
+- Preserve stable requirement and decision IDs.
+- Link to sources instead of duplicating entire specifications.
+- Check consistency with sibling documents.
+- List downstream documents, tasks and tests affected by this change.
+- Do not modify application code as part of this documentation task
+  unless explicitly requested.
+
+Deliver:
+1. Proposed document.
+2. Source-to-section traceability.
+3. Assumptions, conflicts and decisions requiring owner approval.
+4. Downstream impact list.
+5. Validation checklist.
+
+Do not mark the document APPROVED. Approval belongs to the project owner.
+```
+
+## 6.8 Integration with coding agents and automation
+
+- Root AGENTS.md should define the mandatory context-loading sequence and point to authoritative docs.
+- Cursor, Claude Code, Copilot and other tool-specific files should contain concise tool-specific instructions and link back to shared project documentation.
+- Do not maintain separate, conflicting copies of architecture or security rules for each coding tool.
+- TASKS.md should reference requirement IDs and test cases, not merely describe vague coding activities.
+- CI should enforce executable checks such as formatting, linting, type checks, tests, migrations and security scans. Markdown documentation is not itself proof that those checks pass.
+- A documentation validation script may check required files, links, metadata, IDs and stale references. It cannot determine whether a design decision is correct.
+- Generate README, user guides, release notes and test reports from verified implementation and test evidence, not from PRD aspirations.
+- Keep credentials, tokens, private user data and sensitive execution logs out of documentation and agent context.
+
+## 6.9 AI Workflow Orchestrator example: domain-first specification chain
+
+For an AI workflow orchestrator, use this concrete chain:
+
+1. PRD defines workflow creation, execution, monitoring, approval and recovery user outcomes.
+2. SCOPE limits the first release (for example, sequential tasks before parallel execution).
+3. ARCHITECTURE assigns authoritative workflow state and execution responsibility to the backend.
+4. EXECUTION_ENGINE defines workflow/task states, legal transitions, retries, cancellation, approval gates, restart recovery and idempotency/reconciliation behavior.
+5. DATABASE maps those semantics into durable workflow, task, run, event, approval and artifact records.
+6. API_SPECIFICATION exposes commands and queries without allowing clients to bypass runtime invariants.
+7. SECURITY defines provider credential handling, local API access, tool permissions, filesystem boundaries and approval requirements.
+8. DESIGN presents workflow creation, execution status, approvals, logs and recovery states consistent with the runtime.
+9. TEST_PLAN verifies state transitions, persistence, process interruption, duplicate requests, provider failures, approval decisions and unauthorized tool actions.
+10. TASKS breaks the approved contracts into implementation units with dependencies and evidence.
+11. TEST_REPORT records actual test/build/security results before release.
+
+Important: Do not promise exactly-once execution of external side effects. Specify idempotency keys, deduplication, reconciliation and human intervention where an external action's outcome is uncertain.
+
+---
+
+# 7. Minimum set to create before the first line of application code
 
 The full directory structure is a lifecycle target, not a day-one checklist.
 
 | # | File | Before coding? |
 |---:|---|---|
-| 1 | `AGENTS.md` | Yes |
+| 1 | `AGENTS.md` | Yes, concise initial rules |
 | 2 | `docs/01-foundation/PRD.md` | Yes |
-| 3 | `docs/01-foundation/ARCHITECTURE.md` | Yes |
-| 4 | `docs/01-foundation/TECH_STACK.md` | Yes |
-| 5 | `docs/01-foundation/DESIGN.md` | Before UI implementation |
-| 6 | `docs/01-foundation/SECURITY.md` | Yes, baseline rules |
-| 7 | `docs/02-development/TASKS.md` | Yes |
-| 8 | `docs/02-development/TEST_PLAN.md` | Yes |
-| 9 | `.gitignore` | Yes |
-| 10 | `README.md` | Basic version |
+| 3 | `docs/01-foundation/SCOPE.md` | Yes |
+| 4 | `docs/01-foundation/ARCHITECTURE.md` | Yes |
+| 5 | `docs/01-foundation/TECH_STACK.md` | Yes |
+| 6 | `docs/01-foundation/EXECUTION_ENGINE.md` | Yes for orchestration products; define before runtime code |
+| 7 | `docs/01-foundation/SECURITY.md` | Yes, baseline threat boundaries and controls |
+| 8 | `docs/02-development/TEST_PLAN.md` | Yes, initial verification strategy |
+| 9 | `docs/02-development/TASKS.md` | Yes, first dependency-ordered tasks |
+| 10 | `.gitignore` | Yes |
+| 11 | `README.md` | Basic project entry point |
+| 12 | `docs/01-foundation/DATABASE.md` | Before implementing persistence |
+| 13 | `docs/01-foundation/API_SPECIFICATION.md` | Before implementing API contracts |
+| 14 | `docs/01-foundation/DESIGN.md` | Before UI implementation |
+| 15 | `docs/01-foundation/AGENT_WORKFLOW.md` | Before delegating substantial work to multiple agents |
 
 Create DATABASE.md and API_SPECIFICATION.md before implementing their respective subsystems. For database-heavy or API-first systems, define them during initial design.
 
