@@ -19,7 +19,7 @@ Use:
 
 ---
 
-# 1. BEFORE — Pre-Coding and Context Injection
+# 1. BEFORE - Pre-Coding and Context Injection
 
 Create the foundational specifications before implementation begins. They define what is being built, how it should work and which boundaries agents must respect.
 
@@ -151,7 +151,7 @@ test results, known limitations and remaining work.
 
 ---
 
-# 2. DURING — Active Development and State Tracking
+# 2. DURING - Active Development and State Tracking
 
 The repository, not conversation history, must preserve the current project state. Update state documents after meaningful milestones and verify them against the actual codebase.
 
@@ -362,7 +362,7 @@ If session notes conflict with the PRD, architecture or actual code, investigate
 
 ---
 
-# 3. AFTER — Production, Handoff and Maintenance
+# 3. AFTER - Production, Handoff and Maintenance
 
 Create and verify these documents before the corresponding release or handoff activity.
 
@@ -518,7 +518,7 @@ project-root/
 
 # 5. Golden rules for the human orchestrator
 
-## Rule 1 — Maintain one source of truth
+## Rule 1 - Maintain one source of truth
 
 Do not maintain competing versions of the same requirement.
 
@@ -530,7 +530,7 @@ Do not maintain competing versions of the same requirement.
 
 Other documents should link to authoritative sources rather than copying them wholesale.
 
-## Rule 2 — Require context injection before every task
+## Rule 2 - Require context injection before every task
 
 A task-start procedure should require the agent to:
 1. Read root AGENTS.md.
@@ -543,11 +543,11 @@ A task-start procedure should require the agent to:
 
 Do not let an agent implement a substantial change based only on a short natural-language request.
 
-## Rule 3 — Never mark work complete without evidence
+## Rule 3 - Never mark work complete without evidence
 
 Require relevant automated tests, build verification, lint/type checks where applicable, manual verification for uncovered behavior, changed-file reporting and known limitations. A task is complete only when its acceptance criteria are satisfied.
 
-## Rule 4 — Update state after meaningful milestones
+## Rule 4 - Update state after meaningful milestones
 
 Update the documents whose information changed:
 - TASKS.md for task status.
@@ -559,7 +559,7 @@ Update the documents whose information changed:
 
 Do not mechanically update every file after every small code edit.
 
-## Rule 5 — Separate planning, implementation and verification
+## Rule 5 - Separate planning, implementation and verification
 
 Use three controlled stages:
 
